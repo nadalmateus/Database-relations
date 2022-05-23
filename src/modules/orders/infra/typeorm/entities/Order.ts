@@ -6,21 +6,21 @@ import {
   OneToOne,
   JoinColumn,
   OneToMany,
-} from 'typeorm';
+} from "typeorm";
 
-import Customer from '@modules/customers/infra/typeorm/entities/Customer';
-import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';
+import Customer from "@modules/customers/infra/typeorm/entities/Customer";
+import OrdersProducts from "@modules/orders/infra/typeorm/entities/OrdersProducts";
 
-@Entity('orders')
+@Entity("orders")
 class Order {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @OneToOne(() => Customer)
-  @JoinColumn({ name: 'customer_id' })
+  @JoinColumn({ name: "customer_id" })
   customer: Customer;
 
-  @OneToMany(() => OrdersProducts, order_products => order_products.order, {
+  @OneToMany(() => OrdersProducts, (order_products) => order_products.order, {
     cascade: true,
   })
   order_products: OrdersProducts[];
