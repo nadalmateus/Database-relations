@@ -1,10 +1,10 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import CustomersController from '../controller/CustomersController';
+import CustomersController from "../controller/CustomersController";
 
 const appointmentsRouter = Router();
 const customersController = new CustomersController();
 
-appointmentsRouter.post('/', customersController.create);
+appointmentsRouter.post("/", customersController.create);
 
 export default appointmentsRouter;
